@@ -45,13 +45,18 @@ jobs:
       - name: Output Comparison Results
         run: cat comparison_output.txt
 
+      - name: Read comparison result into variable
+        run: |
+          comparison_output=$(cat comparison_result.txt)
+          echo "comparison_output=$comparison_output" >> $GITHUB_ENV
+
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@v1
         with:
           message: |
             CK Metrics Comparison:
             ```
-            $(cat comparison_result.txt)
+            ${{ env.comparison_output }}
             ```
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
