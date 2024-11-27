@@ -21,17 +21,18 @@ jobs:
       - name: Run CK Metrics on PR code
         run: |
           mkdir -p ck_metrics
-          java -jar action/ck-0.7.0-jar-with-dependencies.jar ./src -o ck_metrics/pr_metrics.csv
+          java -jar action/ck-0.7.0-jar-with-dependencies.jar ./src true 0 true ck_metrics/pr_metrics.csv
 
       - name: Checkout base branch for comparison
         run: |
           git fetch origin main
           git checkout main
 
+
       - name: Run CK Metrics on base branch
         run: |
           mkdir -p ck_metrics
-          java -jar action/ck-0.7.0-jar-with-dependencies.jar ./src -o ck_metrics/base_metrics.csv
+          java -jar action/ck-0.7.0-jar-with-dependencies.jar ./src true 0 true ck_metrics/base_metrics.csv
 
       - name: Compare CK Metrics using Java
         run: |
