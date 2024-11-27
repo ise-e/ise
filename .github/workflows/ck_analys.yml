@@ -21,7 +21,7 @@ jobs:
       - name: Run CK Metrics on PR code
         run: |
           mkdir -p ck_metrics
-          java -jar ck-0.7.0.jar . -o ck_metrics/pr_metrics.csv
+          java -jar action/ck-0.7.0.jar . -o ck_metrics/pr_metrics.csv
 
       - name: Checkout base branch for comparison
         run: |
@@ -31,7 +31,7 @@ jobs:
       - name: Run CK Metrics on base branch
         run: |
           mkdir -p ck_metrics
-          java -jar ck-0.7.0.jar . -o ck_metrics/base_metrics.csv
+          java -jar action/ck-0.7.0.jar . -o ck_metrics/base_metrics.csv
 
       - name: Compare CK Metrics using Java
         run: |
