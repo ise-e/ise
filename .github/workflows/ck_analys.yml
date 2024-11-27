@@ -47,7 +47,7 @@ jobs:
 
       - name: Read comparison result into variable
         run: |
-          comparison_output=$(cat comparison_result.txt)
+          comparison_output=$(cat comparison_output.txt)
           echo "comparison_output=$comparison_output" >> $GITHUB_ENV
 
       - name: Comment on PR
