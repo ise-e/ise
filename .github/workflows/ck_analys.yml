@@ -39,7 +39,7 @@ jobs:
           java -jar action/ck-metrics-comparator.jar CompareMetrics ck_metrics/base_metrics.csv ck_metrics/pr_metrics.csv > comparison_output.txt
 
       - name: Output Comparison Results
-        run: cat metrics_comparison_result.txt
+        run: cat comparison_output.txt
 
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@v1
