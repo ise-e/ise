@@ -39,11 +39,12 @@ jobs:
 
       - name: Compare CK Metrics using Java
         run: |
-          java -cp action/ck-metrics-comparator.jar CompareMetrics ck_metrics/base_metrics.csv ck_metrics/pr_metrics.csv > comparison_output.txt
+          java -jar action/ck-metrics-comparator.jar ck_metrics/base_metrics.csv ck_metrics/pr_metrics.csv > comparison_output.txt
           
       - name: Debug
         run: |
           cat comparison_output.txt
+          ls -l comparison_output.txt
 
       - name: Read comparison result into variable
         run: |
